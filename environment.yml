@@ -1,0 +1,15 @@
+name: glam
+dependencies:
+  - python=3.6
+  - numpy=1.14.3
+  - scipy=1.0.0
+  - h5py=2.8.0
+  - imageio=2.4.1
+  - pandas=0.22.0
+  - tqdm=4.19.8
+  - matplotlib=3.0.2
+  - pip
+  - pip:
+      - torch==1.1.0
+      - torchvision==0.2.2
+      - opencv-python==3.4.2.17

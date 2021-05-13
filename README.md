@@ -111,8 +111,10 @@ image_index  |  benign_pred  |  malignant_pred  |  benign_label  |  malignant_la
 You should also find the visualization of the saliency maps under `sample_output/<current_time>/visualization/`. 
 
 
-TIP: If you'd like to run individual Python scripts, please include the path to this repository in your `PYTHONPATH`. 
-
+TIP: If you'd like to run individual Python scripts, please include the path to this repository in your `PYTHONPATH`:  
+ 
+    export PYTHONPATH=$(pwd):$PYTHONPATH
+    
 ## Data
 
 `sample_data/images` contains 4 exams each of which includes 4 original mammography images (L-CC, L-MLO, R-CC, R-MLO). All mammography images are saved in png format. The original 12-bit mammograms are saved as rescaled 16-bit images to preserve the granularity of the pixel intensities, while still being correctly displayed in image viewers.

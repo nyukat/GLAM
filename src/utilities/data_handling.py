@@ -30,6 +30,8 @@ def unpack_exam_into_images(exam_list, cropped=False):
     image_list = []
     for i, exam in enumerate(exam_list):
         for view in VIEWS.LIST:
+            if view not in exam:
+                continue
             for j, image in enumerate(exam[view]):
                 image_dict = dict(
                     short_file_path=image,
@@ -55,6 +57,8 @@ def add_metadata(exam_list, additional_metadata_name, additional_metadata_dict):
         assert additional_metadata_name not in exam, f"This metadata ({additional_metadata_name}) is already included."
         exam[additional_metadata_name] = dict()
         for view in VIEWS.LIST:
+            if view not in exam:
+                continue
             exam[additional_metadata_name][view] = []
             for j, image in enumerate(exam[view]):
                 exam[additional_metadata_name][view].append(additional_metadata_dict[image])

@@ -135,6 +135,8 @@ def run_model(model, exam_list, parameters, turn_on_visualization):
         # iterate through each exam
         for datum in tqdm.tqdm(exam_list):
             for view in VIEWS.LIST:
+                if view not in datum:
+                    continue
                 short_file_path = datum[view][0]
                 # load image
                 # the image is already flipped so no need to do it again

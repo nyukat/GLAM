@@ -2,10 +2,10 @@
 
 # Required parameters (GPU_NUMBER only required if DEVICE_TYPE=gpu)
 INPUT_FOLDER=${1:-sample_data} # Folder with all input files
-OUTPUT_FOLDER=${1:-sample_output} # Folder, where visualization files and predictions will be saved
-MODEL_NAME=${1:-model_sep} # Name of the model to use. Valid values include {`model_joint`, `model_sep`}
-DEVICE_TYPE=${1:-cpu}  # Either `gpu` or `cpu`.
-GPU_NUMBER=${1:-0}  # Which gpu to use, e.g. `0`, does not matter if `DEVICE_TYPE==cpu`.
+OUTPUT_FOLDER=${2:-sample_output} # Folder, where visualization files and predictions will be saved
+MODEL_NAME=${3:-model_sep} # Name of the model to use. Valid values include {`model_joint`, `model_sep`}
+DEVICE_TYPE=${4:-cpu}  # Either `gpu` or `cpu`.
+GPU_NUMBER=${5:-0}  # Which gpu to use, e.g. `0`, does not matter if `DEVICE_TYPE==cpu`.
 
 # Parameters that, most likely, will not need to be changed
 MODEL_PATH="models/"

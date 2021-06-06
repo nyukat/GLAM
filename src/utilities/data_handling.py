@@ -32,6 +32,8 @@ def unpack_exam_into_images(exam_list, cropped=False):
         for view in VIEWS.LIST:
             if view not in exam:
                 continue
+            if not exam[view]:
+                continue
             for j, image in enumerate(exam[view]):
                 image_dict = dict(
                     short_file_path=image,
@@ -58,6 +60,8 @@ def add_metadata(exam_list, additional_metadata_name, additional_metadata_dict):
         exam[additional_metadata_name] = dict()
         for view in VIEWS.LIST:
             if view not in exam:
+                continue
+            if not exam[view]:
                 continue
             exam[additional_metadata_name][view] = []
             for j, image in enumerate(exam[view]):

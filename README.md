@@ -1,5 +1,7 @@
 # Weakly-supervised High-resolution Segmentation of Mammography Images for Breast Cancer Diagnosis
 
+*This repository is a fork of the original implementation: [https://github.com/nyukat/GLAM](https://github.com/nyukat/GLAM).*
+
 ## Introduction
 This is an implementation of the GLAM (Global-Local Activation Maps) model as described in [our paper](https://openreview.net/pdf?id=nBT8eNF7aXr).  In this work, we introduce a novel neural network architecture to perform weakly-supervised segmentation of high-resolution images. The proposed model selects regions of interest via coarse-level localization, and then performs fine-grained segmentation of
 those regions.

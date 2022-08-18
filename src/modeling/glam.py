@@ -1,6 +1,7 @@
 """
 Module that contains networks for MIL family
 """
+import warnings
 import logging
 import numpy as np
 import torch
@@ -57,10 +58,14 @@ class MILSingleImageModel(nn.Module):
         top_k_prop_x = crops_x_small[:, :, 0] / h
         top_k_prop_y = crops_x_small[:, :, 1] / w
         # sanity check
-        assert np.max(top_k_prop_x) <= 1.0, "top_k_prop_x >= 1.0"
-        assert np.min(top_k_prop_x) >= 0.0, "top_k_prop_x <= 0.0"
-        assert np.max(top_k_prop_y) <= 1.0, "top_k_prop_y >= 1.0"
-        assert np.min(top_k_prop_y) >= 0.0, "top_k_prop_y <= 0.0"
+        if np.max(top_k_prop_x) <= 1.0:
+            warnings.warn("top_k_prop_x >= 1.0")
+        if np.min(top_k_prop_x) >= 0.0:
+            warnings.warn("top_k_prop_x <= 0.0")
+        if np.max(top_k_prop_y) <= 1.0:
+            warnings.warn("top_k_prop_y >= 1.0")
+        if np.min(top_k_prop_y) >= 0.0:
+            warnings.warn("top_k_prop_y <= 0.0")
         # interpolate the crop position from cam_size to x_original
         top_k_interpolate_x = np.expand_dims(np.around(top_k_prop_x * H), -1)
         top_k_interpolate_y = np.expand_dims(np.around(top_k_prop_y * W), -1)
